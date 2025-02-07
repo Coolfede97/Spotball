@@ -22,12 +22,18 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         if (Input.GetMouseButtonDown(0) && !shot) clickDownPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         if (Input.GetMouseButtonUp(0) && !shot) 
         {
             shot = true;
-            rb.AddForce((clickDownPos-mousePos).normalized*speed, ForceMode2D.Impulse);
+            // Multiplier va a hacer un número entre 0.5 y 1.5 que se obtiene por la magnitud clampeada del vector igual a la diferencia entre clickDownPos y mousePos
+            float multiplier = Mathf.Clamp(GF.ClampVector(clickDownPos - mousePos, 0, maxDistanceMultiplier).magnitude, 0.5f, maxDistanceMultiplier) ;
+            float force = speed * multiplier * distanceSpeedMultiplier;
+            rb.AddForce((clickDownPos-mousePos).normalized*force, ForceMode2D.Impulse);
         }
+
         if (Input.GetMouseButton(0) && !shot)
         {
             aimLineRenderer.positionCount = 2;
