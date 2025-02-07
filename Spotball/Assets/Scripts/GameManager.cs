@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         CreateNewLevel();
         GameObject levelToDestroy = levelsManager[0].gameObject;
         levelsManager.RemoveAt(0);
-        cameraAim.DOMove(levelsManager[0].transform.position, transitionSpeed).onComplete = ()=> 
+        cameraAim.DOMove(levelsManager[0].transform.position+Vector3.back, transitionSpeed).onComplete = ()=> 
         {
             Destroy(levelToDestroy);
             levelsManager[0].InstantiatePlayer();
