@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        playerSpawnPos.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         GameManager.Instance.lastSpawnPoint = spawnPoint;
         if (GameManager.Instance.levelsManager.Count == 0)
         {
