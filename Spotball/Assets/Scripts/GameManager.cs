@@ -45,9 +45,6 @@ public class GameManager : MonoBehaviour
 
     public void CreateNewLevel()
     {
-        Debug.Log("DKWODW");
-        Debug.Log(lastSpawnPoint.position);
         GameObject newLevel = Instantiate(level1, lastSpawnPoint.position, Quaternion.identity, levelsContainer.transform);
-        Debug.Log(newLevel.transform.position);
     }
 }
