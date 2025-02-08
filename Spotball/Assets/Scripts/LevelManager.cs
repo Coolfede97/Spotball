@@ -23,6 +23,8 @@ public class LevelManager : MonoBehaviour
     {
         if (player != null && (player.transform.position-transform.position).magnitude>6)
         {
+            GameManager.Instance.currentLevel -= 1f / GameManager.Instance.strikeToGainOneLevel;
+            if (GameManager.Instance.currentLevel < 0) GameManager.Instance.currentLevel = 0;
             Destroy(player);
             InstantiatePlayer();
         }

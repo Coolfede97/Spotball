@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         {
             shot = true;
             // Multiplier va a hacer un número entre 0.5 y 1.5 que se obtiene por la magnitud clampeada del vector igual a la diferencia entre clickDownPos y mousePos
-            float multiplier = Mathf.Clamp(GF.ClampVector(clickDownPos - mousePos, 0, maxDistanceMultiplier).magnitude, 0.5f, maxDistanceMultiplier) ;
+            float multiplier = Mathf.Clamp(GF.ClampVector(clickDownPos - mousePos, 0, maxDistanceMultiplier).magnitude, 1f, maxDistanceMultiplier) ;
             float force = speed * multiplier * distanceSpeedMultiplier;
             rb.AddForce((clickDownPos-mousePos).normalized*force, ForceMode2D.Impulse);
         }

@@ -648,9 +648,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea17785ca485064fbe929a9ea385f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 0
+  strikeToGainOneLevel: 10
+  level1: {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  levels1:
+  - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  - {fileID: 2614846516256299532, guid: a4b5f063d5cc1184f8633f53b421a9a5, type: 3}
+  levels2:
+  - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  levels3:
+  - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  levels4:
+  - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  levels5:
+  - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  levels6:
+  - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  levels7:
+  - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  levels8:
+  - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  levels9:
+  - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  levels10:
+  - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
   levelsManager: []
   lastSpawnPoint: {fileID: 0}
-  level1: {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
   levelsContainer: {fileID: 896481958}
   cameraAim: {fileID: 519420032}
   transitionSpeed: 1
@@ -785,6 +808,14 @@ PrefabInstance:
       propertyPath: playerPrefab
       value: 
       objectReference: {fileID: 4956179737021556903, guid: 8096274b7e9d9eb46b84a5c7adf48ea6, type: 3}
+    - target: {fileID: 1421815058012090445, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+      propertyPath: winDistance
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421815058012090445, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+      propertyPath: attractionForce
+      value: 1600
+      objectReference: {fileID: 0}
     - target: {fileID: 1647879667882314770, guid: 42750212c2c721b4c8317902590c6304, type: 3}
       propertyPath: m_LocalScale.y
       value: 10
