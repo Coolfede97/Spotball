@@ -5,13 +5,15 @@ using UnityEngine;
 public class RotativeBlock : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] bool flip;
     void Start()
     {
-        
+        if (flip) speed*=-1;
     }
 
     void Update()
     {
-        transform.rotation = new Quaternion(transform.rotation.x,transform.rotation.y,transform.rotation.z+Time.deltaTime*speed,transform.rotation.w);
+        Vector3 rotation = new Vector3(0, 0, Time.deltaTime * speed);
+        transform.Rotate(rotation);
     }
 }
