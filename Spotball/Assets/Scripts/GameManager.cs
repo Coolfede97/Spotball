@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [Header("Level Generation")]
     public float currentLevel;
     public int strikeToGainOneLevel;
-    [SerializeField] GameObject level1;
+    [SerializeField] GameObject testLevel;
     [SerializeField] GameObject[] levels1;
     [SerializeField] GameObject[] levels2;
     [SerializeField] GameObject[] levels3;
@@ -39,9 +39,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] float transitionSpeed;
     void Start()
     {
-
+        Application.targetFrameRate = 60;
     }
 
+    private void Update()
+    {
+        //if (Input.GetKeyDown(KeyCode.Z)) 
+        //{
+        //    Application.targetFrameRate = 60;
+        //}
+        //else if (Input.GetKeyDown(KeyCode.X))
+        //{
+        //    Application.targetFrameRate = 50;
+        //}
+        //else if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    Application.targetFrameRate = 40;
+        //}
+    }
     public void ChangeLevel()
     {
         currentLevel += 1f / strikeToGainOneLevel;
@@ -60,7 +75,14 @@ public class GameManager : MonoBehaviour
     {
         GameObject[] levelList = levels[(int)currentLevel];
         int rand = Random.Range(0, levelList.Length);
-        GameObject newLevel = Instantiate(levelList[rand], lastSpawnPoint.position, Quaternion.identity, levelsContainer.transform);
+        if (testLevel!=null)
+        {
+            Instantiate(testLevel, lastSpawnPoint.position, Quaternion.identity, levelsContainer.transform);
+        }
+        else
+        {
+            GameObject newLevel = Instantiate(levelList[rand], lastSpawnPoint.position, Quaternion.identity, levelsContainer.transform);            
+        }
     }
 
     public void CreateLevelsList()
