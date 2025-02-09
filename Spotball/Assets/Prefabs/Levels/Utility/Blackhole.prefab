@@ -133,6 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc249d72f36c72e4094eedfe340bb0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractionForce: 700
+  attractionForce: 3
   loseDistance: 1
   levelManager: {fileID: 0}

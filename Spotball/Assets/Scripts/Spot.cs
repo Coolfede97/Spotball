@@ -33,7 +33,7 @@ public class Spot : MonoBehaviour
             {
                 Rigidbody2D rb = col.gameObject.GetComponent<Rigidbody2D>();
                 Vector2 direction = (transform.position - col.gameObject.transform.position).normalized;
-                rb.AddForce(direction * attractionForce * Time.deltaTime, ForceMode2D.Force);
+                rb.AddForce(direction * attractionForce, ForceMode2D.Force);
             }
         }
     }

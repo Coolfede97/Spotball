@@ -22,7 +22,7 @@ public class Wind : MonoBehaviour
         if (col.gameObject.CompareTag("Player") && col.gameObject.GetComponent<PlayerMovement>().shot)
         {
             Rigidbody2D rb = col.gameObject.GetComponent<Rigidbody2D>();
-            rb.AddForce(direciton*speed*Time.deltaTime, ForceMode2D.Force);
+            rb.AddForce(direciton*speed, ForceMode2D.Force);
         }
     }
 }
