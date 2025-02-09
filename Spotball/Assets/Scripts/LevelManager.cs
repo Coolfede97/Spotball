@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
             ReloadPlayer();
         }
     }
-    void ReloadPlayer()
+    public void ReloadPlayer()
     {
         GameManager.Instance.currentLevel -= 1f / GameManager.Instance.strikeToGainOneLevel;
         if (GameManager.Instance.currentLevel < 0) GameManager.Instance.currentLevel = 0;
