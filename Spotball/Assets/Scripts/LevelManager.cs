@@ -23,11 +23,20 @@ public class LevelManager : MonoBehaviour
     {
         if (player != null && (player.transform.position-transform.position).magnitude>6)
         {
-            Destroy(player);
-            InstantiatePlayer();
+            ReloadPlayer();
+        }
+        if (Input.GetMouseButtonUp(0) && player.GetComponent<PlayerMovement>().shot)
+        {
+            ReloadPlayer();
         }
     }
-
+    void ReloadPlayer()
+    {
+        GameManager.Instance.currentLevel -= 1f / GameManager.Instance.strikeToGainOneLevel;
+        if (GameManager.Instance.currentLevel < 0) GameManager.Instance.currentLevel = 0;
+        Destroy(player);
+        InstantiatePlayer();
+    }
     //private void OnTriggerExit2D(Collider2D col)
     //{
     //    if (col.gameObject.CompareTag("Player") && this == GameManager.Instance.levelsManager[0])
