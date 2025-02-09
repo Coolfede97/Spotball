@@ -14,10 +14,9 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.lastSpawnPoint = spawnPoint;
         if (GameManager.Instance.levelsManager.Count == 0)
         {
-            GameManager.Instance.CreateNewLevel();
             InstantiatePlayer();
+            GameManager.Instance.levelsManager.Add(this);
         }
-        GameManager.Instance.levelsManager.Add(this);
     }
     void Update()
     {

@@ -61,27 +61,30 @@ public class GameManager : MonoBehaviour
     {
         currentLevel += 1f / strikeToGainOneLevel;
         if (currentLevel > 9) currentLevel = 9;
-        CreateNewLevel();
-        GameObject levelToDestroy = levelsManager[0].gameObject;
-        levelsManager.RemoveAt(0);
-        cameraAim.DOMove(levelsManager[0].transform.position+Vector3.back, transitionSpeed).onComplete = ()=> 
+
+        GameObject newLevel = CreateNewLevel();
+        levelsManager.Add(newLevel.GetComponent<LevelManager>());
+
+        cameraAim.DOMove(levelsManager[1].transform.position+Vector3.back, transitionSpeed).onComplete = ()=> 
         {
-            Destroy(levelToDestroy);
+            Destroy(levelsManager[0].gameObject);
+            levelsManager.RemoveAt(0);
+
             levelsManager[0].InstantiatePlayer();
         };
     }
 
-    public void CreateNewLevel()
+    public GameObject CreateNewLevel()
     {
         GameObject[] levelList = levels[(int)currentLevel];
         int rand = Random.Range(0, levelList.Length);
         if (testLevel!=null)
         {
-            Instantiate(testLevel, lastSpawnPoint.position, Quaternion.identity, levelsContainer.transform);
+            return Instantiate(testLevel, lastSpawnPoint.position, Quaternion.identity, levelsContainer.transform);
         }
         else
         {
-            GameObject newLevel = Instantiate(levelList[rand], lastSpawnPoint.position, Quaternion.identity, levelsContainer.transform);            
+            return Instantiate(levelList[rand], lastSpawnPoint.position, Quaternion.identity, levelsContainer.transform);            
         }
     }
 
