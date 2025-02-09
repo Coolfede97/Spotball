@@ -976,6 +976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6872960682805219760}
   - component: {fileID: 9046842348774317680}
+  - component: {fileID: 4922941848166693799}
   m_Layer: 0
   m_Name: PlayerSpawnPos
   m_TagString: Untagged
@@ -1050,6 +1051,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4922941848166693799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7588613759015510455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d82558a4355c96d449bae6cc3ac97aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8769438365568791831
 GameObject:
   m_ObjectHideFlags: 0
