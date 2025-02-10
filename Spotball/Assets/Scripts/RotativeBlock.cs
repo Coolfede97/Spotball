@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class RotativeBlock : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] float duration;
     [SerializeField] bool flip;
+    [SerializeField] float rotation;
     void Start()
     {
-        if (flip) speed*=-1;
-    }
-
-    void Update()
-    {
-        Vector3 rotation = new Vector3(0, 0, Time.deltaTime * speed);
-        transform.Rotate(rotation);
+        rotation = flip ? -360 : 360;
+        transform.DORotate(new Vector3(0, 0, rotation), duration, RotateMode.FastBeyond360)
+            .SetEase(Ease.Linear)
+            .SetLoops(-1, LoopType.Restart);
     }
 }
