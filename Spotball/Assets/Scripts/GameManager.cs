@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public Transform lastSpawnPoint;
     
     [SerializeField] Transform levelsContainer;
-    
+    [SerializeField] GameObject blockLevel;
     [Header("Level Transition")]
     [SerializeField] Transform cameraAim;
     [SerializeField] float transitionSpeed;
@@ -39,18 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Z)) 
-        //{
-        //    Application.targetFrameRate = 60;
-        //}
-        //else if (Input.GetKeyDown(KeyCode.X))
-        //{
-        //    Application.targetFrameRate = 50;
-        //}
-        //else if (Input.GetKeyDown(KeyCode.C))
-        //{
-        //    Application.targetFrameRate = 40;
-        //}
+        
     }
     public void ChangeLevel()
     {
@@ -59,9 +48,10 @@ public class GameManager : MonoBehaviour
 
         GameObject newLevel = CreateNewLevel();
         levelsManager.Add(newLevel.GetComponent<LevelManager>());
-
+        GameObject newBlockLevel = Instantiate(blockLevel, lastSpawnPoint.position, Quaternion.identity);
         cameraAim.DOMove(levelsManager[1].transform.position+Vector3.back, transitionSpeed).onComplete = ()=> 
         {
+            Destroy(newBlockLevel);
             Destroy(levelsManager[0].gameObject);
             levelsManager.RemoveAt(0);
 
@@ -75,11 +65,11 @@ public class GameManager : MonoBehaviour
         int rand = Random.Range(0, levelList.Length);
         if (testLevel!=null)
         {
-            return Instantiate(testLevel, lastSpawnPoint.position, Quaternion.identity, levelsContainer.transform);
+            return Instantiate(testLevel, lastSpawnPoint.position+Vector3.up*10, Quaternion.identity, levelsContainer.transform);
         }
         else
         {
-            return Instantiate(levelList[rand], lastSpawnPoint.position, Quaternion.identity, levelsContainer.transform);            
+            return Instantiate(levelList[rand], lastSpawnPoint.position + Vector3.up * 10, Quaternion.identity);            
         }
     }
 

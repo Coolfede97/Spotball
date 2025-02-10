@@ -6,7 +6,7 @@ public class RotativeBlock : MonoBehaviour
 {
     [SerializeField] float duration;
     [SerializeField] bool flip;
-    [SerializeField] float rotation;
+    float rotation;
     void Start()
     {
         rotation = flip ? -360 : 360;

@@ -650,7 +650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   strikeToGainOneLevel: 10
-  testLevel: {fileID: 2614846516256299532, guid: 0120254292d183340a7d1179071a10f7, type: 3}
+  testLevel: {fileID: 0}
   levels1:
   - {fileID: 2614846516256299532, guid: a4b5f063d5cc1184f8633f53b421a9a5, type: 3}
   - {fileID: 2614846516256299532, guid: ef02917a58fbb334c94f79f16aa70b69, type: 3}
@@ -667,6 +667,7 @@ MonoBehaviour:
   levelsManager: []
   lastSpawnPoint: {fileID: 0}
   levelsContainer: {fileID: 896481958}
+  blockLevel: {fileID: 2614846516256299532, guid: cb6633e70236fea4ba6bdc13c0ce3d74, type: 3}
   cameraAim: {fileID: 519420032}
   transitionSpeed: 1
 --- !u!1 &1578912704
