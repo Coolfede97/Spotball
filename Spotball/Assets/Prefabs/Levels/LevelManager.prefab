@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7f1574c026ead49bd034e158ab80d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractionForce: 6
+  attractionForce: 12
   winDistance: 0.25
   achieved: 0
 --- !u!212 &229116435161068558
