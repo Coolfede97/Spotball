@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,8 @@ public class LevelManager : MonoBehaviour
     GameObject player;
     [SerializeField] GameObject playerPrefab;
     [SerializeField] GameObject playerSpawnPos;
-    public Transform spawnPoint; 
+    public Transform spawnPoint;
+    public static event Action onReloadPlayer;
 
     void Start()
     {
@@ -31,6 +33,7 @@ public class LevelManager : MonoBehaviour
     }
     public void ReloadPlayer()
     {
+        onReloadPlayer?.Invoke();
         GameManager.Instance.currentLevel -= 1f / GameManager.Instance.strikeToGainOneLevel;
         if (GameManager.Instance.currentLevel < 0) GameManager.Instance.currentLevel = 0;
         Destroy(player);
