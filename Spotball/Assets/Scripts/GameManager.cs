@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            return Instantiate(levelList[rand], lastSpawnPoint.position + Vector3.up * 10, Quaternion.identity);            
+            return Instantiate(levelList[rand], lastSpawnPoint.position + Vector3.up * 10, Quaternion.identity, levelsContainer.transform);            
         }
     }
 
