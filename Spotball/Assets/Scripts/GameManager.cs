@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     [Header("Level Transition")]
     [SerializeField] Transform cameraAim;
     [SerializeField] float transitionSpeed;
+    [SerializeField] private Ease cameraEaseType = Ease.Linear;
     void Start()
     {
         Application.targetFrameRate = 60;
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
         GameObject newLevel = CreateNewLevel();
         levelsManager.Add(newLevel.GetComponent<LevelManager>());
         GameObject newBlockLevel = Instantiate(blockLevel, lastSpawnPoint.position, Quaternion.identity);
-        cameraAim.DOMove(levelsManager[1].transform.position+Vector3.back, transitionSpeed).onComplete = ()=> 
+        cameraAim.DOMove(levelsManager[1].transform.position+Vector3.back, transitionSpeed).SetEase(cameraEaseType).onComplete = ()=> 
         {
             Destroy(newBlockLevel);
             Destroy(levelsManager[0].gameObject);

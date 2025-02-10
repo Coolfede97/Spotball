@@ -669,7 +669,8 @@ MonoBehaviour:
   levelsContainer: {fileID: 896481958}
   blockLevel: {fileID: 2614846516256299532, guid: cb6633e70236fea4ba6bdc13c0ce3d74, type: 3}
   cameraAim: {fileID: 519420032}
-  transitionSpeed: 1
+  transitionSpeed: 2
+  cameraEaseType: 3
 --- !u!1 &1578912704
 GameObject:
   m_ObjectHideFlags: 0

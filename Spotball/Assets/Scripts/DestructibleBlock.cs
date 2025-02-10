@@ -21,4 +21,8 @@ public class DestructibleBlock : MonoBehaviour
     {
         gameObject.SetActive(true);
     }
+    private void OnDestroy()
+    {
+        LevelManager.onReloadPlayer -= Reset;
+    }
 }
