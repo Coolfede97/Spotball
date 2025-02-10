@@ -21,11 +21,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] levels3;
     [SerializeField] GameObject[] levels4;
     [SerializeField] GameObject[] levels5;
-    [SerializeField] GameObject[] levels6;
-    [SerializeField] GameObject[] levels7;
-    [SerializeField] GameObject[] levels8;
-    [SerializeField] GameObject[] levels9;
-    [SerializeField] GameObject[] levels10;
 
     List<GameObject[]> levels = new List<GameObject[]>();
 
@@ -60,7 +55,7 @@ public class GameManager : MonoBehaviour
     public void ChangeLevel()
     {
         currentLevel += 1f / strikeToGainOneLevel;
-        if (currentLevel > 9) currentLevel = 9;
+        if (currentLevel > levels.Count-1) currentLevel = levels.Count-1;
 
         GameObject newLevel = CreateNewLevel();
         levelsManager.Add(newLevel.GetComponent<LevelManager>());
@@ -95,10 +90,5 @@ public class GameManager : MonoBehaviour
         levels.Add(levels3);
         levels.Add(levels4);
         levels.Add(levels5);
-        levels.Add(levels6);
-        levels.Add(levels7);
-        levels.Add(levels8);
-        levels.Add(levels9);
-        levels.Add(levels10);
     }
 }
