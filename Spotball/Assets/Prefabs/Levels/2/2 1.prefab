@@ -597,6 +597,10 @@ PrefabInstance:
       propertyPath: loseDistance
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3065342661927966586, guid: 786fd77946b074e42a336e804060d30b, type: 3}
+      propertyPath: attractionForce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4623015214019544808, guid: 786fd77946b074e42a336e804060d30b, type: 3}
       propertyPath: m_Name
       value: Blackhole
