@@ -5,6 +5,8 @@ using DG.Tweening;
 public class Spot : MonoBehaviour
 {
     [SerializeField] float attractionForce;
+    float currentAttractionForce;
+    [SerializeField] float increasingForce;
     [SerializeField] float winDistance;
     [SerializeField] bool achieved;
     void Start()
@@ -15,6 +17,13 @@ public class Spot : MonoBehaviour
     void Update()
     {
         
+    }
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            currentAttractionForce = attractionForce;
+        }
     }
     private void OnTriggerStay2D(Collider2D col)
     {
@@ -31,9 +40,10 @@ public class Spot : MonoBehaviour
             }
             else 
             {
+                currentAttractionForce += Time.deltaTime * increasingForce;
                 Rigidbody2D rb = col.gameObject.GetComponent<Rigidbody2D>();
                 Vector2 direction = (transform.position - col.gameObject.transform.position).normalized;
-                rb.AddForce(direction * attractionForce, ForceMode2D.Force);
+                rb.AddForce(direction * currentAttractionForce, ForceMode2D.Force);
             }
         }
     }
