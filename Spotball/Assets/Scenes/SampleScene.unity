@@ -650,7 +650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   strikeToGainOneLevel: 10
-  testLevel: {fileID: 0}
+  testLevel: {fileID: 2614846516256299532, guid: f1b8212f07a102045a03a45eed04e1a4, type: 3}
   levels1:
   - {fileID: 2614846516256299532, guid: a4b5f063d5cc1184f8633f53b421a9a5, type: 3}
   - {fileID: 2614846516256299532, guid: ef02917a58fbb334c94f79f16aa70b69, type: 3}
