@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 mousePos;
     [Header("AIM RENDERER ############")]
     [SerializeField] LineRenderer aimLineRenderer;
+    [Header("PARTICLES ###############")]
+    public ParticleSystem deathParticles;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();    

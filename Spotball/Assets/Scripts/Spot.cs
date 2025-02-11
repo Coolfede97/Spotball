@@ -9,6 +9,7 @@ public class Spot : MonoBehaviour
     [SerializeField] float increasingForce;
     [SerializeField] float winDistance;
     [SerializeField] bool achieved;
+    [SerializeField] ParticleSystem winParticles;
     void Start()
     {
 
@@ -32,11 +33,9 @@ public class Spot : MonoBehaviour
             if ((col.gameObject.transform.position - transform.position).magnitude <= winDistance)
             {
                 achieved = true;
-                Debug.Log("Greatness has been achieved");
-                Debug.Log("UN EFECTO DEBERÍAS PASAR");
-                // EFECTO ESPECIAL
-                col.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                GameManager.Instance.ChangeLevel();
+                Destroy(col.gameObject);
+                Instantiate(winParticles,transform.position,Quaternion.identity,transform);
+                StartCoroutine(GameManager.Instance.ChangeLevel());
             }
             else 
             {

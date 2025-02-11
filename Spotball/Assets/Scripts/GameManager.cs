@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     [Header("Level Transition")]
     [SerializeField] Transform cameraAim;
     [SerializeField] float transitionSpeed;
+    [SerializeField] float transitionDelay;
     [SerializeField] private Ease cameraEaseType = Ease.Linear;
     void Start()
     {
@@ -42,11 +43,11 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public void ChangeLevel()
+    public IEnumerator ChangeLevel()
     {
         currentLevel += 1f / strikeToGainOneLevel;
         if (currentLevel > levels.Count-1) currentLevel = levels.Count-1;
-
+        yield return new WaitForSecondsRealtime(transitionDelay);
         GameObject newLevel = CreateNewLevel();
         levelsManager.Add(newLevel.GetComponent<LevelManager>());
         GameObject newBlockLevel = Instantiate(blockLevel, lastSpawnPoint.position, Quaternion.identity);

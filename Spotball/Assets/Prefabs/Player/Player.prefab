@@ -189,6 +189,7 @@ MonoBehaviour:
   maxDistanceMultiplier: 2
   distanceSpeedMultiplier: 1.2
   aimLineRenderer: {fileID: 7428363318461840654}
+  deathParticles: {fileID: 8214055458076316949, guid: 946f360da5e71be49930d2ff8091324e, type: 3}
 --- !u!50 &2573739842263746460
 Rigidbody2D:
   serializedVersion: 4

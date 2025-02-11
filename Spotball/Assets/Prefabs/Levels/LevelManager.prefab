@@ -52,6 +52,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 4956179737021556903, guid: 8096274b7e9d9eb46b84a5c7adf48ea6, type: 3}
   playerSpawnPos: {fileID: 7588613759015510455}
   spawnPoint: {fileID: 8677044213336791565}
+  a: 1
 --- !u!61 &4340763631323515481
 BoxCollider2D:
   m_ObjectHideFlags: 0

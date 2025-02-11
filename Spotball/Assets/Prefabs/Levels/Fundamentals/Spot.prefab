@@ -50,6 +50,7 @@ MonoBehaviour:
   increasingForce: 200
   winDistance: 0.25
   achieved: 0
+  winParticles: {fileID: 8214055458076316949, guid: b8975174fe5177b48b043398d7139ed3, type: 3}
 --- !u!212 &2854332963435660575
 SpriteRenderer:
   m_ObjectHideFlags: 0
