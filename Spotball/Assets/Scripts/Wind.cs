@@ -18,6 +18,9 @@ public class Wind : MonoBehaviour
         velocityOverLifeTime.x = new ParticleSystem.MinMaxCurve(direciton.x*speed*particlesSpeedMultiplier);
         velocityOverLifeTime.y = new ParticleSystem.MinMaxCurve(direciton.y * speed*particlesSpeedMultiplier);
         velocityOverLifeTime.z = 0f;
+        var shape = ps.shape;
+        shape.enabled = true;
+        shape.scale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
     void Update()
