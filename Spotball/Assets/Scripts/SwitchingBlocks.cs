@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.Collections.AllocatorManager;
 
 public class SwitchingBlocks : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class SwitchingBlocks : MonoBehaviour
     [SerializeField] float intervalTime;
     int currentTurn;
     int turnsLength;
+    int lastTurn;
+    [SerializeField] int numberOfBlinks;
+    [SerializeField][Range(0, 1)] float blinkAlpha;
+    [SerializeField] [Range(0, 1)] float timeBeforeSwitchPercentage;
     [Header("¡NO MODIFICAR SI ES FATHER!!!!")]
     public int turn=0;
     void Start()
@@ -55,19 +60,42 @@ public class SwitchingBlocks : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(intervalTime);
+            yield return new WaitForSeconds(intervalTime-intervalTime*timeBeforeSwitchPercentage);
+
+            for (int i = 0; i < numberOfBlinks; i++) 
+            {
+                for (int j = 0; j < blocksInTurns.Count; j++) 
+                {
+                    foreach (SwitchingBlocks sb in blocksInTurns[j])
+                    {
+                        StartCoroutine(Blink(sb.GetComponent<SpriteRenderer>(), i % 2 == 0));
+                    }
+                }
+            }
             foreach (SwitchingBlocks block in blocksInTurns[currentTurn])
             {
-                block.gameObject.SetActive(false);
+                StartCoroutine(Blink(block.GetComponent<SpriteRenderer>(), true));
             }
             currentTurn = currentTurn == turnsLength - 1 ? 0 : currentTurn + 1;
             foreach (SwitchingBlocks block in blocksInTurns[currentTurn])
             {
-                block.gameObject.SetActive(true);
+                StartCoroutine(Blink(block.GetComponent<SpriteRenderer>(), false));
             }
         }
     }
-
+    IEnumerator Blink(SpriteRenderer sr, bool hide)
+    {
+        float timeForEveryBlink = (intervalTime*timeBeforeSwitchPercentage)/numberOfBlinks;
+        int alpha = hide ? 1 : 0;
+        for (int i = 0; i < numberOfBlinks; i++) 
+        {
+            if (i % 2 == 0) sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, blinkAlpha);
+            else sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
+            yield return new WaitForSecondsRealtime(timeForEveryBlink);
+        }
+        if (hide) sr.gameObject.SetActive(false);
+        else sr.gameObject.SetActive(true);
+    }
     List<SwitchingBlocks> GetChildrenSwitchingBlocks(GameObject parent)
     {
         List<SwitchingBlocks> list = new List<SwitchingBlocks>();
