@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public bool shot;
     [SerializeField] float speed;
     [SerializeField] float maxDistanceMultiplier;
+    [SerializeField] float minDistanceMultiplier;
     [SerializeField] float distanceSpeedMultiplier;
     Vector2 clickDownPos;
     Vector2 mousePos;
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && !shot) 
         {
             // Multiplier va a hacer un número entre 0.5 y 1.5 que se obtiene por la magnitud clampeada del vector igual a la diferencia entre clickDownPos y mousePos
-            float multiplier = Mathf.Clamp(GF.ClampVector(clickDownPos - mousePos, 0, maxDistanceMultiplier).magnitude, 1f, maxDistanceMultiplier) ;
+            float multiplier = Mathf.Clamp(GF.ClampVector(clickDownPos - mousePos, 0, maxDistanceMultiplier).magnitude, minDistanceMultiplier, maxDistanceMultiplier) ;
             float force = speed * multiplier * distanceSpeedMultiplier;
             Vector2 direction = (clickDownPos - mousePos).normalized;
             if (direction == Vector2.zero) return;

@@ -187,6 +187,7 @@ MonoBehaviour:
   shot: 0
   speed: 2.5
   maxDistanceMultiplier: 2
+  minDistanceMultiplier: 0.6
   distanceSpeedMultiplier: 1.2
   aimLineRenderer: {fileID: 7428363318461840654}
   deathParticles: {fileID: 8214055458076316949, guid: 946f360da5e71be49930d2ff8091324e, type: 3}
