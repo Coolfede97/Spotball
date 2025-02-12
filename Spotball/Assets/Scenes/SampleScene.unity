@@ -176,6 +176,7 @@ MonoBehaviour:
   intervalTime: 1
   numberOfBlinks: 2
   blinkAlpha: 0.3
+  timeBeforeSwitchPercentage: 0
   turn: 0
 --- !u!212 &371776277
 SpriteRenderer:
@@ -324,6 +325,7 @@ MonoBehaviour:
   intervalTime: 0
   numberOfBlinks: 0
   blinkAlpha: 0
+  timeBeforeSwitchPercentage: 0
   turn: 0
 --- !u!212 &462789305
 SpriteRenderer:
@@ -830,6 +832,7 @@ MonoBehaviour:
   intervalTime: 0
   numberOfBlinks: 0
   blinkAlpha: 0
+  timeBeforeSwitchPercentage: 0
   turn: 0
 --- !u!212 &1006475019
 SpriteRenderer:
@@ -1151,6 +1154,7 @@ MonoBehaviour:
   intervalTime: 0
   numberOfBlinks: 0
   blinkAlpha: 0
+  timeBeforeSwitchPercentage: 0
   turn: 0
 --- !u!212 &1544194323
 SpriteRenderer:
@@ -1295,7 +1299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   strikeToGainOneLevel: 10
-  testLevel: {fileID: 2614846516256299532, guid: 13d8a8f3786b7cf4984eff615bb88971, type: 3}
+  testLevel: {fileID: 2614846516256299532, guid: 41338e976b5885944b65c333de949d81, type: 3}
   levels1:
   - {fileID: 2614846516256299532, guid: a4b5f063d5cc1184f8633f53b421a9a5, type: 3}
   - {fileID: 2614846516256299532, guid: ef02917a58fbb334c94f79f16aa70b69, type: 3}
