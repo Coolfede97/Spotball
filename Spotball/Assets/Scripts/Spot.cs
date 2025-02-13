@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using AllIn1SpriteShader;
 public class Spot : MonoBehaviour
 {
     [SerializeField] float attractionForce;
@@ -12,7 +13,7 @@ public class Spot : MonoBehaviour
     [SerializeField] ParticleSystem winParticles;
     void Start()
     {
-
+        
     }
 
     void Update()

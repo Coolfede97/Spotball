@@ -123,6 +123,27 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &380287609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8927004014692482032, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  m_PrefabInstance: {fileID: 8695685707295178740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &380287614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380287609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentShaderType: 0
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +157,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420034}
   - component: {fileID: 519420035}
+  - component: {fileID: 519420036}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -252,10 +274,10 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 65
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -276,6 +298,23 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &519420036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 0b48054b503476a4db2a90d5bb73de3f, type: 2}
 --- !u!1 &684395797
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,7 +734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   strikeToGainOneLevel: 10
-  testLevel: {fileID: 2614846516256299532, guid: c12b4bcd3b93fd946a0295e5f6d70492, type: 3}
+  testLevel: {fileID: 2614846516256299532, guid: 22e65249bf4ccf547aea6122b30b1c11, type: 3}
   levels1:
   - {fileID: 2614846516256299532, guid: a4b5f063d5cc1184f8633f53b421a9a5, type: 3}
   - {fileID: 2614846516256299532, guid: ef02917a58fbb334c94f79f16aa70b69, type: 3}
@@ -871,6 +910,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8227713122016991939, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+      propertyPath: m_Color.a
+      value: 0.4509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227713122016991939, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 823c374fef63af84e934a39f51591220, type: 2}
     - target: {fileID: 9034451764598700228, guid: 42750212c2c721b4c8317902590c6304, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -914,7 +961,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8927004014692482032, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 380287614}
   m_SourcePrefab: {fileID: 100100000, guid: 42750212c2c721b4c8317902590c6304, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
