@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject playerPrefab;
     [SerializeField] GameObject playerSpawnPos;
     public Transform spawnPoint;
+    bool levelFailed;
     public static event Action onReloadPlayer;
 
     void Start()
@@ -35,8 +36,12 @@ public class LevelManager : MonoBehaviour
     public void ReloadPlayer()
     {
         onReloadPlayer?.Invoke();
-        GameManager.Instance.currentLevel -= 1f / GameManager.Instance.strikeToGainOneLevel;
-        if (GameManager.Instance.currentLevel < 0) GameManager.Instance.currentLevel = 0;
+        if (!levelFailed)
+        {
+            GameManager.Instance.currentLevel -= 1f / GameManager.Instance.strikeToGainOneLevel;
+            if (GameManager.Instance.currentLevel < 0) GameManager.Instance.currentLevel = 0;
+            levelFailed = true;
+        }
         Instantiate(player.GetComponent<PlayerMovement>().deathParticles, player.transform.position, Quaternion.identity, transform);
         Destroy(player);
         InstantiatePlayer();

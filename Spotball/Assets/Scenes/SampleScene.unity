@@ -387,7 +387,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 11
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -587,7 +587,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 11
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -676,7 +676,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 11
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -736,17 +736,30 @@ MonoBehaviour:
   strikeToGainOneLevel: 10
   testLevel: {fileID: 0}
   levels1:
+  - {fileID: 2614846516256299532, guid: f2c8ab7e7ea630a46a869d9e1855d256, type: 3}
   - {fileID: 2614846516256299532, guid: a4b5f063d5cc1184f8633f53b421a9a5, type: 3}
   - {fileID: 2614846516256299532, guid: ef02917a58fbb334c94f79f16aa70b69, type: 3}
   - {fileID: 2614846516256299532, guid: 22e65249bf4ccf547aea6122b30b1c11, type: 3}
+  - {fileID: 2614846516256299532, guid: ea4d5afe7929cbc4a925c52b0d2c20f9, type: 3}
+  - {fileID: 2614846516256299532, guid: dc9c9a8a75035504c879b1df4c37fc9f, type: 3}
+  - {fileID: 2614846516256299532, guid: 7feb7705355031c4b9c7bc36e99d0d46, type: 3}
+  - {fileID: 2614846516256299532, guid: a2926d06225ac04449ea8afc070456a2, type: 3}
   levels2:
+  - {fileID: 2614846516256299532, guid: 6ccb0ad5396962744b7ffca0295accb6, type: 3}
+  - {fileID: 2614846516256299532, guid: 0120254292d183340a7d1179071a10f7, type: 3}
   - {fileID: 2614846516256299532, guid: ddcbcda6601606842b8270ba92e50e1b, type: 3}
+  - {fileID: 2614846516256299532, guid: 46a4ee5d7377e96478a073ba82b55c1d, type: 3}
+  - {fileID: 2614846516256299532, guid: a7a8c187c0a178041852fe7457856266, type: 3}
+  - {fileID: 2614846516256299532, guid: 1db4ed27890bca642b33dc0281c41e31, type: 3}
+  - {fileID: 2614846516256299532, guid: c35a8733c9fbf1c468cf223a96d299ec, type: 3}
+  - {fileID: 2614846516256299532, guid: 580439a5712c48449ae3e1668565d943, type: 3}
   levels3:
-  - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  - {fileID: 2614846516256299532, guid: 39627f98635d3be4c83c0419c10d1cbd, type: 3}
+  - {fileID: 2614846516256299532, guid: 635dc3f9a91d3304883ed09ca34bf5e9, type: 3}
   levels4:
-  - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  - {fileID: 2614846516256299532, guid: 13d8a8f3786b7cf4984eff615bb88971, type: 3}
   levels5:
-  - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  - {fileID: 2614846516256299532, guid: c12b4bcd3b93fd946a0295e5f6d70492, type: 3}
   levelsManager: []
   lastSpawnPoint: {fileID: 0}
   levelsContainer: {fileID: 896481958}
@@ -827,7 +840,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 11
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0

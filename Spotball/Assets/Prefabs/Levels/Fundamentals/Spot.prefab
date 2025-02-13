@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attractionForce: 12
-  increasingForce: 200
+  increasingForce: 300
   winDistance: 0.25
   achieved: 0
   winParticles: {fileID: 8214055458076316949, guid: b8975174fe5177b48b043398d7139ed3, type: 3}
