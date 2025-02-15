@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] float transitionSpeed;
     [SerializeField] float transitionDelay;
     [SerializeField] private Ease cameraEaseType = Ease.Linear;
+
+    
     void Start()
     {
         Application.targetFrameRate = 60;
@@ -45,6 +47,8 @@ public class GameManager : MonoBehaviour
     }
     public IEnumerator ChangeLevel()
     {
+        DataManager.Instance.levelsWon++;
+        DataManager.Instance.SaveData();
         currentLevel += 1f / strikeToGainOneLevel;
         if (currentLevel > levels.Count-1) currentLevel = levels.Count-1;
         yield return new WaitForSecondsRealtime(transitionDelay);

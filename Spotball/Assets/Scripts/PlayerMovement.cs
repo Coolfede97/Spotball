@@ -17,6 +17,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LineRenderer aimLineRenderer;
     [Header("PARTICLES ###############")]
     public ParticleSystem deathParticles;
+    [Header("MENU #####################")]
+    [SerializeField] int numberOfClicksToMenu;
+    [SerializeField] int currentNumberOfClicks;
+    [SerializeField] float clickIntervalCronometer;
+    [SerializeField] float intervalLimit;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();    
@@ -24,6 +29,21 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (UIManager.Instance.onUI) return;
+        if (!shot && Input.GetMouseButtonDown(0))
+        {
+            currentNumberOfClicks++;
+            if (currentNumberOfClicks >= numberOfClicksToMenu) 
+            {
+                UIManager.Instance.Menu();
+            }
+            clickIntervalCronometer = 0;
+        }
+        clickIntervalCronometer += Time.deltaTime;
+        if (clickIntervalCronometer>=intervalLimit)
+        {
+            currentNumberOfClicks = 0;
+        }
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetMouseButtonDown(0) && !shot) clickDownPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

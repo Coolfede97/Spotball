@@ -200,6 +200,10 @@ MonoBehaviour:
   distanceSpeedMultiplier: 1.2
   aimLineRenderer: {fileID: 7428363318461840654}
   deathParticles: {fileID: 8214055458076316949, guid: 946f360da5e71be49930d2ff8091324e, type: 3}
+  numberOfClicksToMenu: 3
+  currentNumberOfClicks: 0
+  clickIntervalCronometer: 0
+  intervalLimit: 0.7
 --- !u!50 &2573739842263746460
 Rigidbody2D:
   serializedVersion: 4
