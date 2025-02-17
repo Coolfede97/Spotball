@@ -16,11 +16,24 @@ public class DataManager : MonoBehaviour
     [Header("Data")]
     public int levelsWon;
     public int adsPoints;
-    public int sliderSelected;
+    public string sliderSelected;
+    public string deathParticleSelected;
+    public string winParticleSelected;
 
     void Start()
     {
-        LoadData();        
+        LoadData();
+        UIManager.Instance.ClickSlider(sliderSelected);
+        UIManager.Instance.ClickDeathParticle(deathParticleSelected);
+        UIManager.Instance.ClickWinParticle(winParticleSelected);
+
+        UIManager.onCosmeticEnter += () => 
+        {
+            UIManager.Instance.ClickSlider(sliderSelected);
+            UIManager.Instance.ClickDeathParticle(deathParticleSelected);
+            UIManager.Instance.ClickWinParticle(winParticleSelected);
+            UIManager.Instance.spotsWon.text = levelsWon.ToString(); 
+        };
     }
 
     void Update()
@@ -39,12 +52,16 @@ public class DataManager : MonoBehaviour
         levelsWon = data.levelsWon;
         adsPoints = data.adsPoints;
         sliderSelected = data.sliderSelected;
+        deathParticleSelected = data.deathParticleSelected;
+        winParticleSelected = data.winParticleSelected;
     }
 
-    public DataManager(int levelsWonP, int adsPointsP, int sliderSelectedP)
+    public DataManager(int levelsWonP, int adsPointsP, string sliderSelectedP, string deathParticleSelectedP, string winParticleSelectedP)
     {
         levelsWon = levelsWonP;
         adsPoints = adsPointsP;
         sliderSelected = sliderSelectedP;
+        deathParticleSelected = deathParticleSelectedP;
+        winParticleSelected = winParticleSelectedP;
     }
 }

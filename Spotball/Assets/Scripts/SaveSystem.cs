@@ -18,7 +18,7 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/playerData.crh";
         if (!File.Exists(path)) 
         {
-            DataManager manager = new DataManager(0,0,0);
+            DataManager manager = new DataManager(0,0,"","","");
 
             SavePlayerData(manager);
         }

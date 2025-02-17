@@ -24,12 +24,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float intervalLimit;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();    
+        rb = GetComponent<Rigidbody2D>();
+        SetDeathParticle();
+        SetSlider();
+        UIManager.onItemSelected += SetDeathParticle;
+        UIManager.onItemSelected += SetSlider;
     }
 
     void Update()
     {
-        if (UIManager.Instance.onUI) return;
+        if (UIManager.Instance.onUI)
+        {
+            currentNumberOfClicks = 0;
+            return;
+        }
         if (!shot && Input.GetMouseButtonDown(0))
         {
             currentNumberOfClicks++;
@@ -66,5 +74,36 @@ public class PlayerMovement : MonoBehaviour
             aimLineRenderer.SetPosition(1, (Vector2)transform.position + GF.ClampVector(clickDownPos-mousePos, 0, maxDistanceMultiplier));
         }
         else aimLineRenderer.positionCount = 0;
+    }
+
+
+    void SetDeathParticle()
+    {
+        Item? itemSelected = UIManager.Instance.deathParticleSelected;
+        if (itemSelected != null)
+        {
+            GameObject? objectSelected = itemSelected.item;
+            if (objectSelected != null) 
+            {
+                if (objectSelected.TryGetComponent<ParticleSystem>(out ParticleSystem particleSystem))
+                {
+                    deathParticles = particleSystem;
+                }
+                else GF.DebugFedeError($"El item {UIManager.Instance.deathParticleSelected._name} no tiene un particle system");
+            }
+        }
+    }
+
+    void SetSlider()
+    {
+        Item? itemSelected = UIManager.Instance.sliderSelected;
+        if (itemSelected != null)
+        {
+            GameObject? objectSelected = itemSelected.item;
+            if (objectSelected != null)
+            {
+                Instantiate(objectSelected, transform.position, Quaternion.identity, transform);
+            }
+        }
     }
 }

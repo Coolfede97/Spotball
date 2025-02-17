@@ -7,12 +7,15 @@ public class PlayerData
 {
     public int levelsWon;
     public int adsPoints;
-    public int sliderSelected;
-
+    public string sliderSelected;
+    public string deathParticleSelected;
+    public string winParticleSelected;
     public PlayerData(DataManager manager)
     {
         levelsWon = manager.levelsWon;
         adsPoints = manager.adsPoints;
         sliderSelected = manager.sliderSelected;
+        deathParticleSelected = manager.deathParticleSelected;
+        winParticleSelected = manager.winParticleSelected;
     }
 }
