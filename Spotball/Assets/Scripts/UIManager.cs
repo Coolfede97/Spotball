@@ -101,7 +101,7 @@ public class UIManager : MonoBehaviour
         {
             if (item._name == name)
             {
-                if (!item.affordable) return;
+                if (!item.affordable && !item.isAdItem) return;
                 if (!item.isAdItem)
                 {
                     sliderSelected = item;
@@ -113,7 +113,10 @@ public class UIManager : MonoBehaviour
                 {
                     if (DataManager.Instance.adsSlidersGot.Contains(name))
                     {
+                        Debug.Log("LLamado");
                         sliderSelected = item;
+                        item.price = 0;
+                        item.CheckIfAffordable();
                         DataManager.Instance.sliderSelected = name;
                         DataManager.Instance.SaveData();
                         onItemSelected?.Invoke();

@@ -67,6 +67,11 @@ public class Item : MonoBehaviour
     {
         if (selected) image.color = UIManager.Instance.selectedColor;
         else if (affordable) image.color = UIManager.Instance.unselectedColor;
+        else if (isAdItem && DataManager.Instance.adsSlidersGot.Contains(_name))
+        {
+            image.color = UIManager.Instance.unselectedColor;
+            Destroy(adIcon);
+        }
         else image.color = UIManager.Instance.noAffordableColor;
     }
 }

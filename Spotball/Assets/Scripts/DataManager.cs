@@ -38,12 +38,16 @@ public class DataManager : MonoBehaviour
             UIManager.Instance.spotsWon.text = levelsWon.ToString(); 
         };
     }
-
-    void Update()
+    private void Update()
     {
-        //GameObject.Find("TEST").GetComponent<TextMeshProUGUI>().text = levelsWon.ToString();
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    adsSlidersGot = new List<string>();
+        //    adsDeathParticleGot = new List<string>();
+        //    adsWinParticleGot = new List<string>();
+        //    SaveData();
+        //}
     }
-
     public void SaveData()
     {
         SaveSystem.SavePlayerData(this);
@@ -58,8 +62,11 @@ public class DataManager : MonoBehaviour
         deathParticleSelected = data.deathParticleSelected;
         winParticleSelected = data.winParticleSelected;
         adsSlidersGot = data.adsSlidersGot;
+        if (adsSlidersGot==null) adsSlidersGot=new List<string>();
         adsDeathParticleGot = data.adsDeathParticleGot;
+        if (adsDeathParticleGot== null) adsDeathParticleGot = new List<string>();
         adsWinParticleGot = data.adsWinParticleGot;
+        if (adsSlidersGot == null) adsWinParticleGot = new List<string>();
     }
 
     public DataManager(int levelsWonP, int adsPointsP, string sliderSelectedP, string deathParticleSelectedP, string winParticleSelectedP,
