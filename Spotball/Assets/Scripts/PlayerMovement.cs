@@ -88,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (objectSelected.TryGetComponent<ParticleSystem>(out ParticleSystem particleSystem))
                 {
+                    Debug.Log(objectSelected.name);
                     deathParticles = particleSystem;
                 }
                 else GF.DebugFedeError($"El item {UIManager.Instance.deathParticleSelected._name} no tiene un particle system");

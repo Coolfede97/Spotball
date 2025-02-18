@@ -7573,7 +7573,7 @@ MonoBehaviour:
   isWinParticle: 0
   isAdItem: 0
   adIcon: {fileID: 0}
-  item: {fileID: 7377172081747281821, guid: 7e9fd42a2a2c3d640b7f64dd8782bb55, type: 3}
+  item: {fileID: 7377172081747281821, guid: 946f360da5e71be49930d2ff8091324e, type: 3}
 --- !u!114 &1449037595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7730,7 +7730,7 @@ MonoBehaviour:
   isWinParticle: 1
   isAdItem: 0
   adIcon: {fileID: 0}
-  item: {fileID: 7377172081747281821, guid: e6a15972f9c564641aadff958004fbd9, type: 3}
+  item: {fileID: 7377172081747281821, guid: b8975174fe5177b48b043398d7139ed3, type: 3}
 --- !u!114 &1461559504
 MonoBehaviour:
   m_ObjectHideFlags: 0
