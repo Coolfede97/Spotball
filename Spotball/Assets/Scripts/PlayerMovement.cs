@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float intervalLimit;
     void Start()
     {
+        aimLineRenderer.positionCount = 0;
         rb = GetComponent<Rigidbody2D>();
         SetDeathParticle();
         SetSlider();
