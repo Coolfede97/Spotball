@@ -67,11 +67,19 @@ public class Item : MonoBehaviour
     {
         if (selected) image.color = UIManager.Instance.selectedColor;
         else if (affordable) image.color = UIManager.Instance.unselectedColor;
-        else if (isAdItem && DataManager.Instance.adsSlidersGot.Contains(_name))
+        else if (isAdItem && CheckIfAdUnlocked())
         {
             image.color = UIManager.Instance.unselectedColor;
             Destroy(adIcon);
         }
         else image.color = UIManager.Instance.noAffordableColor;
+    }
+
+    bool CheckIfAdUnlocked()
+    {
+        if (isSlider && DataManager.Instance.adsSlidersGot.Contains(_name)) return true;
+        else if (isDeathParticle && DataManager.Instance.adsDeathParticleGot.Contains(_name)) return true;
+        else if (isWinParticle && DataManager.Instance.adsWinParticleGot.Contains(_name)) return true;
+        return false;
     }
 }

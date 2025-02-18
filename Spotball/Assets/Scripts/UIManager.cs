@@ -137,7 +137,7 @@ public class UIManager : MonoBehaviour
         {
             if (item._name == name)
             {
-                if (!item.affordable) return;
+                if (!item.affordable && !item.isAdItem) return;
                 if (!item.isAdItem)
                 {
                     winParticleSelected = item;
@@ -150,6 +150,8 @@ public class UIManager : MonoBehaviour
                     if (DataManager.Instance.adsWinParticleGot.Contains(name))
                     {
                         winParticleSelected = item;
+                        item.price = 0;
+                        item.CheckIfAffordable();
                         DataManager.Instance.winParticleSelected = name;
                         DataManager.Instance.SaveData();
                         onItemSelected?.Invoke();
@@ -169,7 +171,7 @@ public class UIManager : MonoBehaviour
         {
             if (item._name == name)
             {
-                if (!item.affordable) return;
+                if (!item.affordable && !item.isAdItem) return;
                 if (!item.isAdItem) 
                 {
                     deathParticleSelected = item;
@@ -182,6 +184,8 @@ public class UIManager : MonoBehaviour
                     if (DataManager.Instance.adsDeathParticleGot.Contains(name))
                     {
                         deathParticleSelected = item;
+                        item.price = 0;
+                        item.CheckIfAffordable();
                         DataManager.Instance.deathParticleSelected = name;
                         DataManager.Instance.SaveData();
                         onItemSelected?.Invoke();
