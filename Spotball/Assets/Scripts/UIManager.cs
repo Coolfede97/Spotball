@@ -30,7 +30,8 @@ public class UIManager : MonoBehaviour
 
     public static event Action onItemSelected;
     public static event Action onCosmeticEnter;
-
+    public static event Action onMenuEnter;
+    public static event Action onMenuReady;
     [Header("ITEMS ##############################")]
     public Item sliderSelected;
     public Item winParticleSelected;
@@ -71,6 +72,7 @@ public class UIManager : MonoBehaviour
     public void Menu()
     {
         if (onUITransition) return;
+        onMenuEnter?.Invoke();
         onUITransition = true;
         onUI = true;
         uiMenuElements.gameObject.SetActive(true);
@@ -78,6 +80,7 @@ public class UIManager : MonoBehaviour
         uiMenuElements.DOFade(1, uiFadeOutDuration).onComplete = () => 
         {
             onUITransition = false;
+            onMenuReady?.Invoke();
         };
     }
 

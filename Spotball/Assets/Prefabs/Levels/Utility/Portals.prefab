@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 473246407993175302}
   - component: {fileID: 6652412837763755727}
   - component: {fileID: 5041771637533159397}
+  - component: {fileID: 2095266493620584271}
   m_Layer: 0
   m_Name: PortalB
   m_TagString: Untagged
@@ -137,6 +138,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2095266493620584271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276577732390674340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fef0dade2f521b4e882a83b89e1ecd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6125531022099302992
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +195,7 @@ GameObject:
   - component: {fileID: 3601756147020913233}
   - component: {fileID: 9062652452938689388}
   - component: {fileID: 3615095208057448233}
+  - component: {fileID: 6927071847937634664}
   m_Layer: 0
   m_Name: PortalA
   m_TagString: Untagged
@@ -307,3 +321,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6927071847937634664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9133096231391328006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fef0dade2f521b4e882a83b89e1ecd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
