@@ -1,6 +1,8 @@
 using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections.Generic;
+
 public static class SaveSystem
 {
     public static void SavePlayerData(DataManager manager)
@@ -18,7 +20,7 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/playerData.crh";
         if (!File.Exists(path)) 
         {
-            DataManager manager = new DataManager(0,0,"","","");
+            DataManager manager = new DataManager(0,0,"","","", new List<string>(), new List<string>(), new List<string>());
 
             SavePlayerData(manager);
         }

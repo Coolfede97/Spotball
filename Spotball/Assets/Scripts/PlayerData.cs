@@ -10,6 +10,9 @@ public class PlayerData
     public string sliderSelected;
     public string deathParticleSelected;
     public string winParticleSelected;
+    public List<string> adsSlidersGot = new List<string>();
+    public List<string> adsDeathParticleGot = new List<string>();
+    public List<string> adsWinParticleGot = new List<string>();
     public PlayerData(DataManager manager)
     {
         levelsWon = manager.levelsWon;
@@ -17,5 +20,8 @@ public class PlayerData
         sliderSelected = manager.sliderSelected;
         deathParticleSelected = manager.deathParticleSelected;
         winParticleSelected = manager.winParticleSelected;
+        adsSlidersGot = manager.adsSlidersGot;
+        adsDeathParticleGot = manager.adsDeathParticleGot;
+        adsWinParticleGot = manager.adsWinParticleGot;
     }
 }

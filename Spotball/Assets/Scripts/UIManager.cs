@@ -23,12 +23,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] Transform slidersParent;
     [SerializeField] Transform deathParticlesParent;
     [SerializeField] Transform winParticlesParent;
+
     [Header("TRANSITIONS ##########################")]
     [SerializeField] float uiFadeOutDuration;
     [SerializeField] float uiFadeInDuration;
 
     public static event Action onItemSelected;
     public static event Action onCosmeticEnter;
+
     [Header("ITEMS ##############################")]
     public Item sliderSelected;
     public Item winParticleSelected;
@@ -36,10 +38,16 @@ public class UIManager : MonoBehaviour
     public Color selectedColor;
     public Color unselectedColor;
     public Color noAffordableColor;
+    [Header("ADS ################################")]
+    public Item? newAdSliderSelected;
+    public Item? newAdDeathParticleSelected;
+    public Item? newAdWinParticleSelected;
+
     void Start()
     {
         onUI = true;
         uiCosmeticsElements.gameObject.SetActive(false);
+        RememberUnlockedAdItems();
     }
     
     public void UIChange(string function)
@@ -94,10 +102,28 @@ public class UIManager : MonoBehaviour
             if (item._name == name)
             {
                 if (!item.affordable) return;
-                sliderSelected = item;
-                DataManager.Instance.sliderSelected = name;
-                DataManager.Instance.SaveData();
-                onItemSelected?.Invoke();
+                if (!item.isAdItem)
+                {
+                    sliderSelected = item;
+                    DataManager.Instance.sliderSelected = name;
+                    DataManager.Instance.SaveData();
+                    onItemSelected?.Invoke();
+                }
+                else
+                {
+                    if (DataManager.Instance.adsSlidersGot.Contains(name))
+                    {
+                        sliderSelected = item;
+                        DataManager.Instance.sliderSelected = name;
+                        DataManager.Instance.SaveData();
+                        onItemSelected?.Invoke();
+                    }
+                    else
+                    {
+                        newAdSliderSelected = item;
+                        AdsManager.Instance.ShowAd();
+                    }
+                }
             }
         }
     }
@@ -109,10 +135,28 @@ public class UIManager : MonoBehaviour
             if (item._name == name)
             {
                 if (!item.affordable) return;
-                winParticleSelected = item;
-                DataManager.Instance.winParticleSelected = name;
-                DataManager.Instance.SaveData();
-                onItemSelected?.Invoke();
+                if (!item.isAdItem)
+                {
+                    winParticleSelected = item;
+                    DataManager.Instance.winParticleSelected = name;
+                    DataManager.Instance.SaveData();
+                    onItemSelected?.Invoke();
+                }
+                else
+                {
+                    if (DataManager.Instance.adsWinParticleGot.Contains(name))
+                    {
+                        winParticleSelected = item;
+                        DataManager.Instance.winParticleSelected = name;
+                        DataManager.Instance.SaveData();
+                        onItemSelected?.Invoke();
+                    }
+                    else
+                    {
+                        newAdWinParticleSelected = item;
+                        AdsManager.Instance.ShowAd();
+                    }
+                }
             }
         }
     }
@@ -123,11 +167,37 @@ public class UIManager : MonoBehaviour
             if (item._name == name)
             {
                 if (!item.affordable) return;
-                deathParticleSelected = item;
-                DataManager.Instance.deathParticleSelected = name;
-                DataManager.Instance.SaveData();
-                onItemSelected?.Invoke();
+                if (!item.isAdItem) 
+                {
+                    deathParticleSelected = item;
+                    DataManager.Instance.deathParticleSelected = name;
+                    DataManager.Instance.SaveData();
+                    onItemSelected?.Invoke();
+                }
+                else
+                {
+                    if (DataManager.Instance.adsDeathParticleGot.Contains(name))
+                    {
+                        deathParticleSelected = item;
+                        DataManager.Instance.deathParticleSelected = name;
+                        DataManager.Instance.SaveData();
+                        onItemSelected?.Invoke();
+                    }
+                    else
+                    {
+                        newAdDeathParticleSelected = item;
+                        AdsManager.Instance.ShowAd();
+                    }
+                }
             }
+        }
+    }
+
+    void RememberUnlockedAdItems()
+    {
+        foreach (Item item in slidersParent.GetComponentsInChildren<Item>())
+        {
+            //if (DataManager.Instance.)
         }
     }
     void Update()

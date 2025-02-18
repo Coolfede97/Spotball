@@ -19,6 +19,9 @@ public class DataManager : MonoBehaviour
     public string sliderSelected;
     public string deathParticleSelected;
     public string winParticleSelected;
+    public List<string> adsSlidersGot = new List<string>();
+    public List<string> adsDeathParticleGot = new List<string>();
+    public List<string> adsWinParticleGot = new List<string>();
 
     void Start()
     {
@@ -54,14 +57,22 @@ public class DataManager : MonoBehaviour
         sliderSelected = data.sliderSelected;
         deathParticleSelected = data.deathParticleSelected;
         winParticleSelected = data.winParticleSelected;
+        adsSlidersGot = data.adsSlidersGot;
+        adsDeathParticleGot = data.adsDeathParticleGot;
+        adsWinParticleGot = data.adsWinParticleGot;
     }
 
-    public DataManager(int levelsWonP, int adsPointsP, string sliderSelectedP, string deathParticleSelectedP, string winParticleSelectedP)
+    public DataManager(int levelsWonP, int adsPointsP, string sliderSelectedP, string deathParticleSelectedP, string winParticleSelectedP,
+        List<string> adsSlidersGotP, List<string> adsDeathParticleGotP, List<string> adsWinParticleGotP
+        )
     {
         levelsWon = levelsWonP;
         adsPoints = adsPointsP;
         sliderSelected = sliderSelectedP;
         deathParticleSelected = deathParticleSelectedP;
         winParticleSelected = winParticleSelectedP;
+        adsSlidersGot = adsSlidersGotP;
+        adsDeathParticleGot = adsDeathParticleGotP;
+        adsWinParticleGot = adsWinParticleGotP;
     }
 }

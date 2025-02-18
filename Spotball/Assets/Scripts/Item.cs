@@ -15,12 +15,14 @@ public class Item : MonoBehaviour
     [SerializeField] bool isSlider;
     [SerializeField] bool isDeathParticle;
     [SerializeField] bool isWinParticle;
+    public bool isAdItem;
+    public GameObject adIcon;
     public GameObject item;
     private void Awake()
     {
         UIManager.onItemSelected += CheckIfSelected;
         UIManager.onCosmeticEnter += CheckIfAffordable;
-        priceText.text = price.ToString();
+        if (!isAdItem) priceText.text = price.ToString();
         image = GetComponent<UnityEngine.UI.Image>();
     }
     void Start()
@@ -56,6 +58,7 @@ public class Item : MonoBehaviour
         else
         {
             affordable = true;
+            if (isAdItem) Destroy(adIcon);
         }
         SetColor();
     }
