@@ -4706,7 +4706,7 @@ MonoBehaviour:
   isDeathParticle: 1
   isWinParticle: 0
   isAdItem: 1
-  adIcon: {fileID: 869381190}
+  adIcon: {fileID: 92185238}
   item: {fileID: 7377172081747281821, guid: 7e9fd42a2a2c3d640b7f64dd8782bb55, type: 3}
 --- !u!114 &869381193
 MonoBehaviour:
@@ -8417,7 +8417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   strikeToGainOneLevel: 10
-  testLevel: {fileID: 2614846516256299532, guid: a7a8c187c0a178041852fe7457856266, type: 3}
+  testLevel: {fileID: 2614846516256299532, guid: 34c69274d5be1414ca0d1a949a58b132, type: 3}
   levels1:
   - {fileID: 2614846516256299532, guid: f2c8ab7e7ea630a46a869d9e1855d256, type: 3}
   - {fileID: 2614846516256299532, guid: a4b5f063d5cc1184f8633f53b421a9a5, type: 3}
@@ -8445,6 +8445,7 @@ MonoBehaviour:
   - {fileID: 2614846516256299532, guid: c12b4bcd3b93fd946a0295e5f6d70492, type: 3}
   levelsManager: []
   lastSpawnPoint: {fileID: 0}
+  levelSize: {x: 6, y: 10}
   levelsContainer: {fileID: 896481958}
   blockLevel: {fileID: 2614846516256299532, guid: cb6633e70236fea4ba6bdc13c0ce3d74, type: 3}
   cameraAim: {fileID: 519420032}

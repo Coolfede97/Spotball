@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int currentNumberOfClicks;
     [SerializeField] float clickIntervalCronometer;
     [SerializeField] float intervalLimit;
+
+
+    GameObject? slider;
     void Start()
     {
         aimLineRenderer.positionCount = 0;
@@ -104,8 +107,10 @@ public class PlayerMovement : MonoBehaviour
             GameObject? objectSelected = itemSelected.item;
             if (objectSelected != null)
             {
-                Instantiate(objectSelected, transform.position, Quaternion.identity, transform);
+                if (slider!=null) Destroy(slider);
+                slider = Instantiate(objectSelected, transform.position, Quaternion.identity, transform);
             }
         }
+        else if (slider != null) Destroy(slider);
     }
 }

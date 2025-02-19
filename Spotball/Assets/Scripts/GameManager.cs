@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     public List<LevelManager> levelsManager = new List<LevelManager>();
     public Transform lastSpawnPoint;
-    
+    public Vector2 levelSize;
     [SerializeField] Transform levelsContainer;
     [SerializeField] GameObject blockLevel;
     [Header("Level Transition")]
