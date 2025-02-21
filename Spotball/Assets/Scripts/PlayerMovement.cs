@@ -113,4 +113,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (slider != null) Destroy(slider);
     }
+
+    private void OnDestroy()
+    {
+        UIManager.onItemSelected -= SetDeathParticle;
+        UIManager.onItemSelected -= SetSlider;
+    }
 }

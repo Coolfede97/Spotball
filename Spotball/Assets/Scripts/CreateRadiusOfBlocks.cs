@@ -24,13 +24,20 @@ public class CreateRadiusOfBlocks : MonoBehaviour
     }
     void Update()
     {
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(levelManager.position, GameManager.Instance.levelSize, 0);
-        List<GameObject> collidersList = new List<GameObject>();
-        foreach (Collider2D collider in colliders) collidersList.Add(collider.gameObject);
         foreach (GameObject block in blocksCreated)
         {
-            if (collidersList.Contains(block)) block.SetActive(true);
-            else block.SetActive(false);
+            Transform blockTrans = block.transform;
+            float radius = blockTrans.localScale.x > blockTrans.localScale.y ? blockTrans.localScale.x + 1 : blockTrans.localScale.y + 1;
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(block.transform.position, radius);
+            foreach (Collider2D collider in colliders)
+            {
+                if (collider.gameObject.transform == levelManager)
+                {
+                    block.SetActive(true);
+                    break;
+                }
+                else block.SetActive(false);
+            }
         }
     }
 }

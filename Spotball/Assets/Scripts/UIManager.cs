@@ -48,7 +48,6 @@ public class UIManager : MonoBehaviour
     {
         onUI = true;
         uiCosmeticsElements.gameObject.SetActive(false);
-        RememberUnlockedAdItems();
     }
     
     public void UIChange(string function)
@@ -104,7 +103,9 @@ public class UIManager : MonoBehaviour
         {
             if (item._name == name)
             {
+                item.CheckIfAffordable();
                 if (!item.affordable && !item.isAdItem) return;
+                Debug.Log("DSADD");
                 if (!item.isAdItem)
                 {
                     sliderSelected = item;
@@ -200,14 +201,6 @@ public class UIManager : MonoBehaviour
                     }
                 }
             }
-        }
-    }
-
-    void RememberUnlockedAdItems()
-    {
-        foreach (Item item in slidersParent.GetComponentsInChildren<Item>())
-        {
-            //if (DataManager.Instance.)
         }
     }
     void Update()
