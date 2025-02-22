@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour
             if (GameManager.Instance.currentLevel < 0) GameManager.Instance.currentLevel = 0;
             levelFailed = true;
         }
-        Instantiate(player.GetComponent<PlayerMovement>().deathParticles, player.transform.position, Quaternion.identity, transform);
+        Instantiate(UIManager.Instance.deathParticleSelected.item, player.transform.position, Quaternion.identity, transform);
         Destroy(player);
         InstantiatePlayer();
     }

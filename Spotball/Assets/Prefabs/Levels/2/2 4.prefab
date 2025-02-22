@@ -62,7 +62,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2614846516256299532}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -664,7 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3c8b5b60ed4994ba59674e9f4ff030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 70
+  duration: 0
   flip: 1
 --- !u!1 &8488714663635638285
 GameObject:

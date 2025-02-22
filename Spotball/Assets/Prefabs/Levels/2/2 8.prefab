@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   copy: {fileID: 1476819344253667395}
   duration: 4
+  delay: 0
   easeType: 1
 --- !u!1 &2614846516256299532
 GameObject:
@@ -211,7 +212,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2614846516256299532}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -525,6 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   copy: {fileID: 431576685524859913}
   duration: 3
+  delay: 0
   easeType: 1
 --- !u!1 &4783962642866976661
 GameObject:

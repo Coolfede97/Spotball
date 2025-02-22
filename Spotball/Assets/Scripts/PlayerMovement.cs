@@ -15,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 mousePos;
     [Header("AIM RENDERER ############")]
     [SerializeField] LineRenderer aimLineRenderer;
-    [Header("PARTICLES ###############")]
-    public ParticleSystem deathParticles;
+    //[Header("PARTICLES ###############")]
+    //public GameObject deathParticles;
     [Header("MENU #####################")]
     [SerializeField] int numberOfClicksToMenu;
     [SerializeField] int currentNumberOfClicks;
@@ -29,9 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         aimLineRenderer.positionCount = 0;
         rb = GetComponent<Rigidbody2D>();
-        SetDeathParticle();
         SetSlider();
-        UIManager.onItemSelected += SetDeathParticle;
         UIManager.onItemSelected += SetSlider;
     }
 
@@ -79,26 +77,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else aimLineRenderer.positionCount = 0;
     }
-
-
-    void SetDeathParticle()
-    {
-        Item? itemSelected = UIManager.Instance.deathParticleSelected;
-        if (itemSelected != null)
-        {
-            GameObject? objectSelected = itemSelected.item;
-            if (objectSelected != null) 
-            {
-                if (objectSelected.TryGetComponent<ParticleSystem>(out ParticleSystem particleSystem))
-                {
-                    Debug.Log(objectSelected.name);
-                    deathParticles = particleSystem;
-                }
-                else GF.DebugFedeError($"El item {UIManager.Instance.deathParticleSelected._name} no tiene un particle system");
-            }
-        }
-    }
-
     void SetSlider()
     {
         Item? itemSelected = UIManager.Instance.sliderSelected;
@@ -116,7 +94,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        UIManager.onItemSelected -= SetDeathParticle;
         UIManager.onItemSelected -= SetSlider;
     }
 }

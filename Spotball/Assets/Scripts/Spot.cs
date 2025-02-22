@@ -10,11 +10,9 @@ public class Spot : MonoBehaviour
     [SerializeField] float increasingForce;
     [SerializeField] float winDistance;
     [SerializeField] bool achieved;
-    [SerializeField] ParticleSystem winParticles;
     void Start()
     {
-        SetWinParticles();
-        UIManager.onItemSelected += SetWinParticles;
+ 
     }
 
     void Update()
@@ -36,7 +34,7 @@ public class Spot : MonoBehaviour
             {
                 achieved = true;
                 Destroy(col.gameObject);
-                Instantiate(winParticles,transform.position,Quaternion.identity,transform);
+                Instantiate(UIManager.Instance.winParticleSelected.item,transform.position,Quaternion.identity,transform);
                 StartCoroutine(GameManager.Instance.ChangeLevel());
             }
             else 
@@ -45,22 +43,6 @@ public class Spot : MonoBehaviour
                 Rigidbody2D rb = col.gameObject.GetComponent<Rigidbody2D>();
                 Vector2 direction = (transform.position - col.gameObject.transform.position).normalized;
                 rb.AddForce(direction * currentAttractionForce, ForceMode2D.Force);
-            }
-        }
-    }
-    void SetWinParticles()
-    {
-        Item? itemSelected = UIManager.Instance.winParticleSelected;
-        if (itemSelected != null)
-        {
-            GameObject? objectSelected = itemSelected.item;
-            if (objectSelected != null)
-            {
-                if (objectSelected.TryGetComponent<ParticleSystem>(out ParticleSystem particleSystem))
-                {
-                    winParticles = particleSystem;
-                }
-                else GF.DebugFedeError($"El item {UIManager.Instance.deathParticleSelected._name} no tiene un particle system");
             }
         }
     }

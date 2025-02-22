@@ -141,6 +141,7 @@ public class UIManager : MonoBehaviour
         {
             if (item._name == name)
             {
+                item.CheckIfAffordable();
                 if (!item.affordable && !item.isAdItem) return;
                 if (!item.isAdItem)
                 {
@@ -175,7 +176,9 @@ public class UIManager : MonoBehaviour
         {
             if (item._name == name)
             {
+                item.CheckIfAffordable();
                 if (!item.affordable && !item.isAdItem) return;
+                Debug.Log("DWO[SKDWODKWODWKDW");
                 if (!item.isAdItem) 
                 {
                     deathParticleSelected = item;
