@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1076700060166119907}
   - component: {fileID: 2150269194374914395}
   - component: {fileID: 5655287373869824289}
+  - component: {fileID: 4042400349570110340}
   m_Layer: 0
   m_Name: Wall (3)
   m_TagString: Untagged
@@ -148,6 +149,20 @@ MonoBehaviour:
   duration: 1.5
   delay: 0
   easeType: 1
+--- !u!114 &4042400349570110340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30867643925647959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdaab4caabc8cdc40adab849ed6360bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelManager: {fileID: 217845438116201619}
+  extraRayLength: 0
 --- !u!1 &99936350432502857
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +862,7 @@ GameObject:
   - component: {fileID: 5866723432047273995}
   - component: {fileID: 9114104245152987270}
   - component: {fileID: 4439357263008831328}
+  - component: {fileID: 2354158401943666717}
   m_Layer: 0
   m_Name: Wall (4)
   m_TagString: Untagged
@@ -983,6 +999,20 @@ MonoBehaviour:
   duration: 1.5
   delay: 0.3
   easeType: 1
+--- !u!114 &2354158401943666717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813529664070863287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdaab4caabc8cdc40adab849ed6360bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelManager: {fileID: 217845438116201619}
+  extraRayLength: 0
 --- !u!1 &7588613759015510455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1122,7 @@ GameObject:
   - component: {fileID: 5482513735088171309}
   - component: {fileID: 6794638918161307794}
   - component: {fileID: 6094134626454459545}
+  - component: {fileID: 1143226904817674780}
   m_Layer: 0
   m_Name: Wall (5)
   m_TagString: Untagged
@@ -1228,6 +1259,20 @@ MonoBehaviour:
   duration: 1.5
   delay: 0.6
   easeType: 1
+--- !u!114 &1143226904817674780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7626382994640209283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdaab4caabc8cdc40adab849ed6360bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelManager: {fileID: 217845438116201619}
+  extraRayLength: 0
 --- !u!1 &8606269176873584429
 GameObject:
   m_ObjectHideFlags: 0

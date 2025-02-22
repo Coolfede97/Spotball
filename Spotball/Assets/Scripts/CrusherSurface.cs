@@ -6,7 +6,7 @@ using UnityEngine;
 public class CrusherSurface : MonoBehaviour
 {
     [SerializeField] LevelManager levelManager;
-    [SerializeField] float extraRayLength;
+    [SerializeField] float extraRayLength=-0.1f;
     void Start()
     {
         
@@ -24,11 +24,11 @@ public class CrusherSurface : MonoBehaviour
             Ray2D ray = new Ray2D();
             ContactPoint2D contactPoint = col.GetContact(0);
             ray.origin = contactPoint.point;
-            ray.direction = contactPoint.normal;
-            RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction*(playerLength+extraRayLength));
+            ray.direction = contactPoint.normal*-1;
+            RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction, playerLength + extraRayLength);
             foreach (RaycastHit2D hit in hits ) 
             {
-                if (hit.collider.gameObject != gameObject && hit.collider != col.collider)
+                if (!hit.collider.isTrigger && hit.collider.gameObject != gameObject && hit.collider != col.collider)
                 {
                     Debug.Log(hit.collider.gameObject.name);
                     levelManager.ReloadPlayer();
