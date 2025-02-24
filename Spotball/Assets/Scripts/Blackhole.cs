@@ -14,22 +14,22 @@ public class Blackhole : MonoBehaviour
 
     void Update()
     {
-        
-    }
-
-    private void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.gameObject.CompareTag("Player"))
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, transform.localScale.x/2);
+        foreach (Collider2D col in colliders)
         {
-            if ((col.gameObject.transform.position-transform.position).magnitude<=loseDistance)
+            if (col.gameObject.CompareTag("Player"))
             {
-                levelManager.ReloadPlayer();
+                if ((col.gameObject.transform.position - transform.position).magnitude <= loseDistance)
+                {
+                    levelManager.ReloadPlayer();
+                }
+                PlayerMovement playerMovement = col.gameObject.GetComponent<PlayerMovement>();
+                if (!playerMovement.shot) return;
+                Rigidbody2D rb = col.gameObject.GetComponent<Rigidbody2D>();
+                Vector2 direction = (transform.position - col.gameObject.transform.position).normalized;
+                rb.AddForce(direction * attractionForce, ForceMode2D.Force);
             }
-            PlayerMovement playerMovement = col.gameObject.GetComponent<PlayerMovement>();
-            if (!playerMovement.shot) return;
-            Rigidbody2D rb = col.gameObject.GetComponent<Rigidbody2D>();
-            Vector2 direction = (transform.position-col.gameObject.transform.position).normalized;
-            rb.AddForce(direction * attractionForce,ForceMode2D.Force);
         }
     }
+
 }

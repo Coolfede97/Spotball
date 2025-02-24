@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Unity.Collections.AllocatorManager;
 using System;
+using DG.Tweening;
 public class SwitchingBlocks : MonoBehaviour
 {
     [Header("¡SOLO MODIFICAR SI ES FATHER!!!!!!")]
@@ -13,7 +14,8 @@ public class SwitchingBlocks : MonoBehaviour
     int turnsLength;
     int lastTurn;
     [SerializeField] int numberOfBlinks;
-    [SerializeField][Range(0, 1)] float blinkAlpha;
+    [SerializeField][Range(0, 1)] float inBlinkAlpha= 0.7f;
+    [SerializeField][Range(0,1)] float outBlinkAlpha= 0.3f;   
     [SerializeField] [Range(0, 1)] float timeBeforeSwitchPercentage;
     [Header("¡NO MODIFICAR SI ES FATHER!!!!")]
     public int turn=0;
@@ -86,26 +88,27 @@ public class SwitchingBlocks : MonoBehaviour
     IEnumerator Blink(SpriteRenderer sr, bool hide)
     {
         if (!hide) SetComponents(sr.gameObject, false);
-        float timeForEveryBlink = (intervalTime*timeBeforeSwitchPercentage)/numberOfBlinks;
+        float timeForEveryBlink = (intervalTime*timeBeforeSwitchPercentage)/(numberOfBlinks+1);
         int originalAlpha = hide ? 1 : 0;
         int finalAlpha = hide ? 0 : 1;
         for (int i = 0; i < numberOfBlinks; i++) 
         {
-            if (i % 2 == 0) sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, blinkAlpha);
-            else sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, originalAlpha);
+            if (i % 2 == 0) sr.DOFade(hide ? outBlinkAlpha : inBlinkAlpha, timeForEveryBlink);
+            else sr.DOFade(originalAlpha, timeForEveryBlink);
             yield return new WaitForSecondsRealtime(timeForEveryBlink);
         }
         if (hide)
         {
             sr.gameObject.SetActive(false);
-            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, finalAlpha);
+            sr.DOFade(finalAlpha, timeForEveryBlink);
         }
         else
         {
             sr.gameObject.SetActive(true);
             SetComponents(sr.gameObject,true);
-            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, finalAlpha);
+            sr.DOFade(finalAlpha, timeForEveryBlink);
         }
+        yield return new WaitForSecondsRealtime(timeForEveryBlink);
     }
 
     void SetComponents(GameObject target,bool enabling)

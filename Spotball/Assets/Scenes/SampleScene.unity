@@ -8452,8 +8452,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  strikeToGainOneLevel: 10
-  testLevel: {fileID: 2614846516256299532, guid: 13d8a8f3786b7cf4984eff615bb88971, type: 3}
+  strikeToGainOneLevel: 5
+  testLevel: {fileID: 0}
   levels1:
   - {fileID: 2614846516256299532, guid: f2c8ab7e7ea630a46a869d9e1855d256, type: 3}
   - {fileID: 2614846516256299532, guid: a4b5f063d5cc1184f8633f53b421a9a5, type: 3}
@@ -8464,6 +8464,7 @@ MonoBehaviour:
   - {fileID: 2614846516256299532, guid: 7feb7705355031c4b9c7bc36e99d0d46, type: 3}
   - {fileID: 2614846516256299532, guid: a2926d06225ac04449ea8afc070456a2, type: 3}
   - {fileID: 2614846516256299532, guid: 34c69274d5be1414ca0d1a949a58b132, type: 3}
+  - {fileID: 2614846516256299532, guid: 4228012cf75b37c48a97b723ca50b956, type: 3}
   levels2:
   - {fileID: 2614846516256299532, guid: 6ccb0ad5396962744b7ffca0295accb6, type: 3}
   - {fileID: 2614846516256299532, guid: 0120254292d183340a7d1179071a10f7, type: 3}
@@ -8474,9 +8475,12 @@ MonoBehaviour:
   - {fileID: 2614846516256299532, guid: c35a8733c9fbf1c468cf223a96d299ec, type: 3}
   - {fileID: 2614846516256299532, guid: 39627f98635d3be4c83c0419c10d1cbd, type: 3}
   - {fileID: 2614846516256299532, guid: 42750212c2c721b4c8317902590c6304, type: 3}
+  - {fileID: 2614846516256299532, guid: a545fd339a6e8e64ab4c7c61a39c80ec, type: 3}
+  - {fileID: 2614846516256299532, guid: 1e480e17f7fbb2f43b8e7361a21518a0, type: 3}
   levels3:
   - {fileID: 2614846516256299532, guid: a7a8c187c0a178041852fe7457856266, type: 3}
   - {fileID: 2614846516256299532, guid: 580439a5712c48449ae3e1668565d943, type: 3}
+  - {fileID: 2614846516256299532, guid: 732b5442cb76a55448a081964ccacdec, type: 3}
   levels4:
   - {fileID: 2614846516256299532, guid: 13d8a8f3786b7cf4984eff615bb88971, type: 3}
   - {fileID: 2614846516256299532, guid: 635dc3f9a91d3304883ed09ca34bf5e9, type: 3}
