@@ -40,13 +40,13 @@ public class DataManager : MonoBehaviour
     }
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    adsSlidersGot = new List<string>();
-        //    adsDeathParticleGot = new List<string>();
-        //    adsWinParticleGot = new List<string>();
-        //    SaveData();
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            adsSlidersGot = new List<string>();
+            adsDeathParticleGot = new List<string>();
+            adsWinParticleGot = new List<string>();
+            SaveData();
+        }
     }
     public void SaveData()
     {
