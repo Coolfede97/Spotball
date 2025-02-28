@@ -113,24 +113,6 @@ public class UIManager : MonoBehaviour
                     DataManager.Instance.SaveData();
                     onItemSelected?.Invoke();
                 }
-                else
-                {
-                    if (DataManager.Instance.adsSlidersGot.Contains(name))
-                    {
-                        Debug.Log("LLamado");
-                        sliderSelected = item;
-                        item.price = 0;
-                        item.CheckIfAffordable();
-                        DataManager.Instance.sliderSelected = name;
-                        DataManager.Instance.SaveData();
-                        onItemSelected?.Invoke();
-                    }
-                    else
-                    {
-                        newAdSliderSelected = item;
-                        AdsManager.Instance.ShowAd();
-                    }
-                }
             }
         }
     }
@@ -150,23 +132,6 @@ public class UIManager : MonoBehaviour
                     DataManager.Instance.SaveData();
                     onItemSelected?.Invoke();
                 }
-                else
-                {
-                    if (DataManager.Instance.adsWinParticleGot.Contains(name))
-                    {
-                        winParticleSelected = item;
-                        item.price = 0;
-                        item.CheckIfAffordable();
-                        DataManager.Instance.winParticleSelected = name;
-                        DataManager.Instance.SaveData();
-                        onItemSelected?.Invoke();
-                    }
-                    else
-                    {
-                        newAdWinParticleSelected = item;
-                        AdsManager.Instance.ShowAd();
-                    }
-                }
             }
         }
     }
@@ -185,23 +150,6 @@ public class UIManager : MonoBehaviour
                     DataManager.Instance.deathParticleSelected = name;
                     DataManager.Instance.SaveData();
                     onItemSelected?.Invoke();
-                }
-                else
-                {
-                    if (DataManager.Instance.adsDeathParticleGot.Contains(name))
-                    {
-                        deathParticleSelected = item;
-                        item.price = 0;
-                        item.CheckIfAffordable();
-                        DataManager.Instance.deathParticleSelected = name;
-                        DataManager.Instance.SaveData();
-                        onItemSelected?.Invoke();
-                    }
-                    else
-                    {
-                        newAdDeathParticleSelected = item;
-                        AdsManager.Instance.ShowAd();
-                    }
                 }
             }
         }
