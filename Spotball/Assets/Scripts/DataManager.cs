@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 public class DataManager : MonoBehaviour
 {
 
@@ -26,6 +27,12 @@ public class DataManager : MonoBehaviour
     void Start()
     {
         LoadData();
+        if (levelsWon == 0)
+        {
+            sliderSelected = "1";
+            deathParticleSelected = "1";
+            winParticleSelected = "1";
+        }
         UIManager.Instance.ClickSlider(sliderSelected);
         UIManager.Instance.ClickDeathParticle(deathParticleSelected);
         UIManager.Instance.ClickWinParticle(winParticleSelected);
@@ -42,10 +49,7 @@ public class DataManager : MonoBehaviour
     {
         //if (Input.GetKeyDown(KeyCode.Space))
         //{
-        //    adsSlidersGot = new List<string>();
-        //    adsDeathParticleGot = new List<string>();
-        //    adsWinParticleGot = new List<string>();
-        //    SaveData();
+        //    Delete(Application.persistentDataPath + "/playerData.crh");
         //}
     }
     public void SaveData()
@@ -81,5 +85,10 @@ public class DataManager : MonoBehaviour
         adsSlidersGot = adsSlidersGotP;
         adsDeathParticleGot = adsDeathParticleGotP;
         adsWinParticleGot = adsWinParticleGotP;
+    }
+
+    public static void Delete(string path)
+    {
+        File.Delete(path);
     }
 }

@@ -21,7 +21,7 @@ public static class SaveSystem
         if (!File.Exists(path)) 
         {
             List<string> emptyList = new List<string>();
-            DataManager manager = new DataManager(0,0,"","","", emptyList, emptyList, emptyList);
+            DataManager manager = new DataManager(0,0,"1","1","1", emptyList, emptyList, emptyList);
 
             SavePlayerData(manager);
         }
